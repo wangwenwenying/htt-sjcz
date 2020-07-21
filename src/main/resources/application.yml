@@ -1,0 +1,90 @@
+server:
+  port: 28080
+spring:
+  ##mysql
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.126:3306/httsjcz?useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&characterEncoding=utf-8&serverTimezone=GMT&serverTimezone=GMT%2B8
+    username: root
+    password: root
+  jpa:
+    show-sql: true # 默认false，在日志里显示执行的sql语句
+    database: mysql
+    #hibernate.ddl-auto: update #指定为update，每次启动项目检测表结构有变化的时候会新增字段，表不存在时会新建，如果指定create，则每次启动项目都会清空数据并删除表，再新建
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl #指定jpa的自动表生成策略，驼峰自动映射为下划线格式
+
+nghttp:
+  ngdir: http://192.168.1.126/htt/
+  dir: /usr/local/htt
+
+fabric:
+  #----init
+  cc: dev
+  orgMSPID: DevMSP
+  openTLS: true
+  #user
+  userleagueName: flt
+  userorgName: dev
+  userpeerName: peer0
+  username: Admin
+  userskPath: /opt/onekey-123/outdir/Admin@peer0.dev.flt.cn/Admin@dev.flt.cn/msp/keystore/14c3bb0094ef0216a764afe06078684f8c8ddee2012e57f875c84437e7b156d2_sk
+  usercertificatePath: /opt/onekey-123/outdir/Admin@peer0.dev.flt.cn/Admin@dev.flt.cn/msp/signcerts/Admin@dev.flt.cn-cert.pem
+  #orderer
+  orderername: orderer
+  ordererlocation: orderer.flt.cn:7050
+  ordererserverCrtPath: /opt/onekey-123/outdir/orderer.flt.cn/tls/ca.crt
+  ordererclientCertPath: /opt/onekey-123/outdir/orderer.flt.cn/tls/server.crt
+  ordererclientKeyPath: /opt/onekey-123/outdir/orderer.flt.cn/tls/server.key
+  #peer
+  peerName: peer0
+  peerLocation: peer0.dev.flt.cn:7051
+  peerEventHubLocation: peer0.dev.flt.cn:7051
+  peerserverCrtPath: /opt/onekey-123/outdir/peer0.dev.flt.cn/tls/ca.crt
+  peerclientCertPath: /opt/onekey-123/outdir/peer0.dev.flt.cn/tls/server.crt
+  peerclientKeyPath: /opt/onekey-123/outdir/peer0.dev.flt.cn/tls/server.key
+  #channel
+  channelName: mych
+
+  #---chaincode
+  chaincodeName: httcc
+  chaincodePath: fu-chain.com/fuchain-cccore-v141/examples/chaincode/go/httchaincode/cmd
+  GOPATH: /root/gopath
+  chaincodePolicy: /usr/1.yaml
+  chaincodeVersion: 1.0
+  proposalWaitTime: 90000
+#fabric:
+#  #----init
+#  cc: htt
+#  orgMSPID: Org1MSP
+#  openTLS: true
+#  #user
+#  userleagueName: fltec
+#  userorgName: org1
+#  userpeerName: peer0
+#  username: Admin
+#  userskPath: /opt/onekey/outdir/Admin@peer0.org1.cn/Admin@org1.cn/msp/keystore/d012bad3b215e3fa38edad71d76d8f7a2ab6d3a7c99499280bf77737cd7de11a_sk
+#  usercertificatePath: /opt/onekey/outdir/Admin@peer0.org1.cn/Admin@org1.cn/msp/signcerts/Admin@org1.cn-cert.pem
+#  #orderer
+#  orderername: orderer
+#  ordererlocation: orderer.fltec.cn:7050
+#  ordererserverCrtPath: /opt/onekey/outdir/orderer.fltec.cn/tls/ca.crt
+#  ordererclientCertPath: /opt/onekey/outdir/orderer.fltec.cn/tls/server.crt
+#  ordererclientKeyPath: /opt/onekey/outdir/orderer.fltec.cn/tls/server.key
+#  #peer
+#  peerName: peer0
+#  peerLocation: peer0.org1.cn:7051
+#  peerEventHubLocation: peer0.org1.cn:7051
+#  peerserverCrtPath: /opt/onekey/outdir/peer0.org1.cn/tls/ca.crt
+#  peerclientCertPath: /opt/onekey/outdir/peer0.org1.cn/tls/server.crt
+#  peerclientKeyPath: /opt/onekey/outdir/peer0.org1.cn/tls/server.key
+#  #channel
+#  channelName: mych
+#  #---chaincode
+#  chaincodeName: httcc
+#  chaincodePath: fu-chain.com/fuchain-cccore-v141/examples/chaincode/go/httchaincode/cmd
+#  GOPATH: /root/gopath
+#  chaincodePolicy: /usr/1.yaml
+#  chaincodeVersion: 1.0
+#  proposalWaitTime: 90000
